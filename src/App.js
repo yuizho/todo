@@ -20,6 +20,9 @@ export class App {
     }
 
     handleAdd(title) {
+        if (!title) {
+            return;
+        }
         this.todoListModel.addTodo(new TodoItemModel({
             title: title,
             completed: false
@@ -85,5 +88,9 @@ export class App {
 
             inputElement.value = "";
         });
+    }
+
+    unmount() {
+        this.todoListModel.drop();
     }
 }

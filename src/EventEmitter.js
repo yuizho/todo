@@ -32,4 +32,14 @@ export class EventEmitter {
             }
         });
     }
+
+    removeEventListeners(type) {
+        const listernerSet = this._listeners.get(type);
+        if (!listernerSet) {
+            return;
+        }
+        listernerSet.forEach(ownListener => {
+            this.removeEventListener(type, ownListener);
+        });
+    }
 }

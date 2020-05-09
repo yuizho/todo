@@ -8,6 +8,10 @@ export class TodoListModel extends EventEmitter {
         this.items = items;
     }
 
+    drop() {
+        this.removeEventListeners("change");
+    }
+
     getTotalCount() {
         return this.items.length;
     }
