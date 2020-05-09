@@ -52,6 +52,7 @@ export class App {
         const inputElement = document.querySelector("#js-form-input");
         const containerElement = document.querySelector("#js-todo-list");
         const todoItemCountElement = document.querySelector("#js-todo-count");
+        const doneItemCountElement = document.querySelector("#js-done-count");
 
         // register event handler
         this.todoListModel.onChange(() => {
@@ -77,6 +78,7 @@ export class App {
             });
             render(todoListElement, containerElement);
             todoItemCountElement.textContent = `Todoアイテム数: ${this.todoListModel.getTotalCount()}`;
+            doneItemCountElement.textContent = `Doneアイテム数: ${this.todoListModel.getDoneCount()}`;
         });
 
         formElement.addEventListener("submit", (event) => {
